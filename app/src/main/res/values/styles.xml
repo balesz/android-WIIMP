@@ -12,7 +12,44 @@
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <declare-styleable name="AppTheme.Filter">
+        <attr name="filterHeader" format="reference"/>
+        <attr name="filterDivider" format="reference"/>
+        <attr name="filterSwitch" format="reference"/>
+        <attr name="filterTextEdit" format="reference"/>
+    </declare-styleable>
+    <style name="AppTheme.Filter" parent="AppTheme.NoActionBar">
+        <item name="filterHeader">@style/AppTheme.Filter.Header</item>
+        <item name="filterDivider">@style/AppTheme.Filter.Divider</item>
+        <item name="filterSwitch">@style/AppTheme.Filter.Switch</item>
+        <item name="filterTextEdit">@style/AppTheme.Filter.TextEdit</item>
+    </style>
+    <style name="AppTheme.Filter.Header">
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">?attr/colorAccent</item>
+    </style>
+    <style name="AppTheme.Filter.Divider">
+        <item name="android:background">@drawable/divider</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+    </style>
+    <style name="AppTheme.Filter.Base">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingLeft">24dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="AppTheme.Filter.Switch" parent="AppTheme.Filter.Base">
+    </style>
+    <style name="AppTheme.Filter.TextEdit" parent="AppTheme.Filter.Base">
+    </style>
 
 </resources>
