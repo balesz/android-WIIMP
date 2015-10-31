@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AppTheme">
+        <attr name="appButton" format="reference"/>
+    </declare-styleable>
+    <declare-styleable name="AppTheme.Filter">
+        <attr name="filterItem" format="reference"/>
+        <attr name="filterHeader" format="reference"/>
+        <attr name="filterDivider" format="reference"/>
+        <attr name="filterSwitch" format="reference"/>
+        <attr name="filterTextView" format="reference"/>
+        <attr name="filterCheckBox" format="reference"/>
+    </declare-styleable>
+</resources>

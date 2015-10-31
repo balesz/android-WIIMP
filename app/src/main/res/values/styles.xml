@@ -4,27 +4,25 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="appButton">@style/AppTheme.Button</item>
     </style>
-
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <declare-styleable name="AppTheme.Filter">
-        <attr name="filterHeader" format="reference"/>
-        <attr name="filterDivider" format="reference"/>
-        <attr name="filterSwitch" format="reference"/>
-        <attr name="filterTextEdit" format="reference"/>
-    </declare-styleable>
+
+    <style name="AppTheme.Button" parent="@style/Widget.AppCompat.Button.Borderless.Colored">
+    </style>
+
     <style name="AppTheme.Filter" parent="AppTheme.NoActionBar">
         <item name="filterHeader">@style/AppTheme.Filter.Header</item>
         <item name="filterDivider">@style/AppTheme.Filter.Divider</item>
+        <item name="filterItem">@style/AppTheme.Filter.Item</item>
         <item name="filterSwitch">@style/AppTheme.Filter.Switch</item>
-        <item name="filterTextEdit">@style/AppTheme.Filter.TextEdit</item>
+        <item name="filterCheckBox">@style/AppTheme.Filter.CheckBox</item>
     </style>
     <style name="AppTheme.Filter.Header">
         <item name="android:gravity">left|center_vertical</item>
@@ -38,7 +36,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1dp</item>
     </style>
-    <style name="AppTheme.Filter.Base">
+    <style name="AppTheme.Filter.Item">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:paddingTop">8dp</item>
@@ -47,9 +45,9 @@
         <item name="android:paddingRight">8dp</item>
         <item name="android:textSize">18sp</item>
     </style>
-    <style name="AppTheme.Filter.Switch" parent="AppTheme.Filter.Base">
+    <style name="AppTheme.Filter.Switch" parent="AppTheme.Filter.Item">
     </style>
-    <style name="AppTheme.Filter.TextEdit" parent="AppTheme.Filter.Base">
+    <style name="AppTheme.Filter.CheckBox" parent="AppTheme.Filter.Item">
     </style>
 
 </resources>

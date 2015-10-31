@@ -60,8 +60,9 @@
         android:layout_height="match_parent"
         android:id="@+id/main_navigation_right">
         <fragment
+            android:layout_gravity="fill"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:tag="net.solutinno.wiimp.FilterFragment"
             android:name="net.solutinno.wiimp.FilterFragment"
             tools:layout="@layout/filter"/>

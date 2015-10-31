@@ -1,56 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.GridLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:columnCount="2"
-    app:rowCount="3"
-    tools:ignore="ContentDescription"
-    android:theme="@style/AppTheme.Filter">
+    android:layout_height="match_parent">
 
-    <android.support.v7.widget.AppCompatTextView
-        style="?attr/filterHeader"
-        app:layout_columnSpan="2"
-        android:text="Order by"/>
-    <android.support.v7.widget.SwitchCompat
-        style="?attr/filterSwitch"
-        app:layout_columnSpan="2"
-        android:text="Item 1"/>
-    <android.support.v7.widget.SwitchCompat
-        style="?attr/filterSwitch"
-        app:layout_columnSpan="2"
-        android:text="Item 2"/>
+    <android.support.v7.widget.AppCompatButton
+        android:text="Apply"
+        style="?attr/appButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/filter_apply"/>
+    <android.support.v7.widget.AppCompatButton
+        android:text="Reset"
+        style="?attr/appButton"
+        android:layout_toLeftOf="@id/filter_apply"
+        android:layout_toStartOf="@id/filter_apply"
+        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/filter_reset"/>
 
-    <View style="?attr/filterDivider"/>
+    <android.support.v4.widget.NestedScrollView
+        android:layout_above="@id/filter_apply"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/filter_scroll">
+        <android.support.v7.widget.GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:columnCount="2"
+            tools:ignore="ContentDescription"
+            android:theme="@style/AppTheme.Filter">
 
-    <android.support.v7.widget.AppCompatTextView
-        style="?attr/filterHeader"
-        app:layout_columnSpan="2"
-        android:text="Group by"/>
-    <android.support.v7.widget.SwitchCompat
-        style="?attr/filterSwitch"
-        app:layout_columnSpan="2"
-        android:text="Item 1"/>
-    <android.support.v7.widget.SwitchCompat
-        style="?attr/filterSwitch"
-        app:layout_columnSpan="2"
-        android:text="Item 2"/>
+            <android.support.v7.widget.AppCompatTextView
+                style="?attr/filterHeader"
+                app:layout_columnSpan="2"
+                android:text="Order by"/>
+            <android.support.v7.widget.AppCompatTextView
+                style="?attr/filterItem"
+                app:layout_columnSpan="2"
+                android:text="Newest first"/>
+            <android.support.v7.widget.AppCompatTextView
+                style="?attr/filterItem"
+                app:layout_columnSpan="2"
+                android:text="Oldest first"/>
 
-    <View style="?attr/filterDivider"/>
+            <View style="?attr/filterDivider"/>
 
-    <android.support.v7.widget.AppCompatTextView
-        style="?attr/filterHeader"
-        app:layout_columnSpan="2"
-        android:text="Filter"/>
-    <android.support.v7.widget.SwitchCompat
-        style="?attr/filterSwitch"
-        app:layout_columnSpan="2"
-        android:text="Item 1"/>
-    <android.support.v7.widget.SwitchCompat
-        style="?attr/filterSwitch"
-        app:layout_columnSpan="2"
-        android:text="Item 2"/>
+            <android.support.v7.widget.AppCompatTextView
+                style="?attr/filterHeader"
+                app:layout_columnSpan="2"
+                android:text="Group by"/>
+            <android.support.v7.widget.AppCompatTextView
+                style="?attr/filterItem"
+                app:layout_columnSpan="2"
+                android:text="Day"/>
+            <android.support.v7.widget.AppCompatTextView
+                style="?attr/filterItem"
+                app:layout_columnSpan="2"
+                android:text="Month"/>
+            <android.support.v7.widget.AppCompatTextView
+                style="?attr/filterItem"
+                app:layout_columnSpan="2"
+                android:text="Date interval"/>
+            <android.support.v7.widget.AppCompatTextView
+                style="?attr/filterItem"
+                app:layout_columnSpan="2"
+                android:text="Domain"/>
 
-</android.support.v7.widget.GridLayout>
+            <View style="?attr/filterDivider"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                style="?attr/filterHeader"
+                app:layout_columnSpan="2"
+                android:text="Filter"/>
+            <android.support.v7.widget.AppCompatTextView
+                style="?attr/filterItem"
+                app:layout_columnSpan="2"
+                android:text="Date interval"/>
+            <android.support.v7.widget.AppCompatTextView
+                style="?attr/filterItem"
+                app:layout_columnSpan="2"
+                android:text="Favorite"/>
+            <android.support.v7.widget.AppCompatTextView
+                style="?attr/filterItem"
+                app:layout_columnSpan="2"
+                android:text="Domain"/>
+            <android.support.v7.widget.AppCompatTextView
+                style="?attr/filterItem"
+                app:layout_columnSpan="2"
+                android:text="Tags"/>
+
+        </android.support.v7.widget.GridLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</RelativeLayout>
