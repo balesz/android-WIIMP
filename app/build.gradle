@@ -29,16 +29,3 @@ dependencies {
     compile 'com.android.support:gridlayout-v7:23.1.0'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
-buildscript {
-    ext.kotlin_version = '1.0.0-beta-1038'
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
-    }
-}
-repositories {
-    jcenter()
-}
