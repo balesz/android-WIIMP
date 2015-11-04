@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="filter_order">
+        <item>Newest first</item>
+        <item>Oldest first</item>
+        <item>Length</item>
+    </string-array>
+
+    <string-array name="filter_group">
+        <item>None</item>
+        <item>Day</item>
+        <item>Month</item>
+        <item>Domain</item>
+        <item>Length</item>
+    </string-array>
+
+</resources>

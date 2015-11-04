@@ -32,69 +32,47 @@
         android:id="@+id/filter_scroll">
         <android.support.v7.widget.GridLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:columnCount="2"
+            android:layout_height="wrap_content"
+            app:columnCount="3"
             tools:ignore="ContentDescription"
             android:theme="@style/AppTheme.Filter">
 
-            <android.support.v7.widget.AppCompatTextView
-                style="?attr/filterHeader"
-                app:layout_columnSpan="2"
+            <android.support.v7.widget.AppCompatTextView style="?attr/filterHeader"
                 android:text="Order by"/>
-            <android.support.v7.widget.AppCompatTextView
-                style="?attr/filterItem"
-                app:layout_columnSpan="2"
-                android:text="Newest first"/>
-            <android.support.v7.widget.AppCompatTextView
-                style="?attr/filterItem"
-                app:layout_columnSpan="2"
-                android:text="Oldest first"/>
 
-            <View style="?attr/filterDivider"/>
+            <android.support.v7.widget.AppCompatSpinner style="?attr/filterSpinner"
+                android:entries="@array/filter_order"
+                android:spinnerMode="dropdown"/>
 
-            <android.support.v7.widget.AppCompatTextView
-                style="?attr/filterHeader"
-                app:layout_columnSpan="2"
+            <android.support.v7.widget.AppCompatTextView style="?attr/filterDivider"/>
+
+            <android.support.v7.widget.AppCompatTextView style="?attr/filterHeader"
                 android:text="Group by"/>
-            <android.support.v7.widget.AppCompatTextView
-                style="?attr/filterItem"
-                app:layout_columnSpan="2"
-                android:text="Day"/>
-            <android.support.v7.widget.AppCompatTextView
-                style="?attr/filterItem"
-                app:layout_columnSpan="2"
-                android:text="Month"/>
-            <android.support.v7.widget.AppCompatTextView
-                style="?attr/filterItem"
-                app:layout_columnSpan="2"
-                android:text="Date interval"/>
-            <android.support.v7.widget.AppCompatTextView
-                style="?attr/filterItem"
-                app:layout_columnSpan="2"
-                android:text="Domain"/>
 
-            <View style="?attr/filterDivider"/>
+            <android.support.v7.widget.AppCompatSpinner style="?attr/filterSpinner"
+                android:entries="@array/filter_group"
+                android:spinnerMode="dropdown"/>
 
-            <android.support.v7.widget.AppCompatTextView
-                style="?attr/filterHeader"
-                app:layout_columnSpan="2"
+            <android.support.v7.widget.AppCompatTextView style="?attr/filterDivider"/>
+
+            <android.support.v7.widget.AppCompatTextView style="?attr/filterHeader"
                 android:text="Filter"/>
-            <android.support.v7.widget.AppCompatTextView
-                style="?attr/filterItem"
-                app:layout_columnSpan="2"
-                android:text="Date interval"/>
-            <android.support.v7.widget.AppCompatTextView
-                style="?attr/filterItem"
-                app:layout_columnSpan="2"
+
+            <android.support.v7.widget.AppCompatTextView style="?attr/filterItem"
+                android:text="Date"
+                android:id="@+id/filter_filter_date"/>
+
+            <android.support.v7.widget.AppCompatTextView style="?attr/filterItem"
                 android:text="Favorite"/>
-            <android.support.v7.widget.AppCompatTextView
-                style="?attr/filterItem"
-                app:layout_columnSpan="2"
+
+            <android.support.v7.widget.AppCompatTextView style="?attr/filterItem"
                 android:text="Domain"/>
-            <android.support.v7.widget.AppCompatTextView
-                style="?attr/filterItem"
-                app:layout_columnSpan="2"
+
+            <android.support.v7.widget.AppCompatTextView style="?attr/filterItem"
                 android:text="Tags"/>
+
+            <android.support.v7.widget.AppCompatTextView style="?attr/filterItem"
+                android:text="Length"/>
 
         </android.support.v7.widget.GridLayout>
     </android.support.v4.widget.NestedScrollView>

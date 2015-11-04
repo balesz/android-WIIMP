@@ -10,5 +10,6 @@
         <attr name="filterSwitch" format="reference"/>
         <attr name="filterTextView" format="reference"/>
         <attr name="filterCheckBox" format="reference"/>
+        <attr name="filterSpinner" format="reference"/>
     </declare-styleable>
 </resources>
