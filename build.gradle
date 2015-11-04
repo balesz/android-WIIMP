@@ -6,7 +6,6 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:1.5.0-beta1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
     }
 }
 
@@ -14,8 +13,13 @@ allprojects {
     repositories {
         jcenter()
     }
+    buildscript {
+        repositories {
+            jcenter()
+        }
+    }
 }
 
 task clean(type: Delete) {
-    delete rootProject.buildDir
+    allprojects.forEach({ delete it.buildDir })
 }
