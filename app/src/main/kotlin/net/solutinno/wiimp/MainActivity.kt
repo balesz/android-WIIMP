@@ -34,6 +34,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     val onNavigationItemSelected = NavigationView.OnNavigationItemSelectedListener {
+        if (it.title == "Settings") {
+            fragmentManager.beginTransaction()
+                    .replace(main_content.id, SettingsFragment(), "Settings")
+                    .addToBackStack(null)
+                    .commit()
+        }
+        main_drawer.closeDrawer(Gravity.START)
         true
     }
 

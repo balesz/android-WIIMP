@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference android:title="Order by" android:summary="Newest first"
+        android:defaultValue="Newest first" android:key="order"
+        android:entries="@array/filter_group" android:entryValues="@array/filter_group"/>
+
+    <ListPreference android:title="Group by" android:summary="None"
+        android:defaultValue="None" android:key="group"
+        android:entries="@array/filter_order" android:entryValues="@array/filter_order"/>
+
+    <PreferenceCategory android:title="Filter">
+        <Preference android:title="Date" android:summary="2015.05.12 - 2015.06.12" />
+        <CheckBoxPreference android:title="Favorite" android:summary="Just the favorites" />
+        <SwitchPreference android:title="Unfavorite" android:summary="Just the unfavorites" />
+        <EditTextPreference android:title="Sites" android:key="sites" />
+        <EditTextPreference android:title="Tags" android:key="tags" />
+        <EditTextPreference android:title="Length" android:key="length" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
