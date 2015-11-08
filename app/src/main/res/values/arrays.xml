@@ -4,15 +4,29 @@
     <string-array name="filter_order">
         <item>Newest first</item>
         <item>Oldest first</item>
-        <item>Length</item>
+        <item>Shortest first</item>
+        <item>Longest first</item>
     </string-array>
 
     <string-array name="filter_group">
         <item>None</item>
         <item>Day</item>
         <item>Month</item>
-        <item>Domain</item>
+        <item>Site</item>
         <item>Length</item>
+    </string-array>
+
+    <string-array name="filter_length">
+        <item>All</item>
+        <item>Short</item>
+        <item>Medium</item>
+        <item>Long</item>
+    </string-array>
+
+    <string-array name="filter_favorites">
+        <item>All</item>
+        <item>Only favorites</item>
+        <item>Only unfavorites</item>
     </string-array>
 
 </resources>

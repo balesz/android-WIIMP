@@ -33,46 +33,60 @@
         <android.support.v7.widget.GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:columnCount="3"
+            app:columnCount="2"
             tools:ignore="ContentDescription"
             android:theme="@style/AppTheme.Filter">
 
             <android.support.v7.widget.AppCompatTextView style="?attr/filterHeader"
-                android:text="Order by"/>
+                app:layout_columnSpan="2"
+                android:text="REFINE"/>
 
-            <android.support.v7.widget.AppCompatSpinner style="?attr/filterSpinner"
-                android:entries="@array/filter_order"
-                android:spinnerMode="dropdown"/>
+            <android.support.v7.widget.AppCompatTextView style="?attr/filterDivider"
+                app:layout_columnSpan="2" app:layout_gravity="fill" />
 
-            <android.support.v7.widget.AppCompatTextView style="?attr/filterDivider"/>
+            <net.solutinno.wiimp.widgets.FilterItemView
+                android:layout_height="48dp"
+                app:filter_title="Group by" app:filter_subtitle="None"
+                app:layout_columnSpan="2" app:layout_gravity="fill"
+                android:id="@+id/group_by"/>
+
+            <net.solutinno.wiimp.widgets.FilterItemView
+                android:layout_height="48dp"
+                app:filter_title="Order by" app:filter_subtitle="Newest first"
+                app:layout_columnSpan="2" app:layout_gravity="fill"
+                android:id="@+id/order_by"/>
+
+            <android.support.v7.widget.AppCompatTextView style="?attr/filterDivider"
+                app:layout_columnSpan="2" app:layout_gravity="fill" />
 
             <android.support.v7.widget.AppCompatTextView style="?attr/filterHeader"
-                android:text="Group by"/>
-
-            <android.support.v7.widget.AppCompatSpinner style="?attr/filterSpinner"
-                android:entries="@array/filter_group"
-                android:spinnerMode="dropdown"/>
-
-            <android.support.v7.widget.AppCompatTextView style="?attr/filterDivider"/>
-
-            <android.support.v7.widget.AppCompatTextView style="?attr/filterHeader"
+                app:layout_columnSpan="2"
                 android:text="Filter"/>
 
-            <android.support.v7.widget.AppCompatTextView style="?attr/filterItem"
-                android:text="Date"
-                android:id="@+id/filter_filter_date"/>
+            <net.solutinno.wiimp.widgets.FilterItemView
+                app:filter_title="Date" app:filter_subtitle="2015.11.01 - 2015.11.06"
+                app:layout_columnSpan="2" app:layout_gravity="fill"
+                android:id="@+id/date"/>
 
-            <android.support.v7.widget.AppCompatTextView style="?attr/filterItem"
-                android:text="Favorite"/>
+            <net.solutinno.wiimp.widgets.FilterItemView
+                app:filter_title="Length" app:filter_subtitle="All"
+                app:layout_columnSpan="2" app:layout_gravity="fill"
+                android:id="@+id/length"/>
 
-            <android.support.v7.widget.AppCompatTextView style="?attr/filterItem"
-                android:text="Domain"/>
+            <net.solutinno.wiimp.widgets.FilterItemView
+                app:filter_title="Favorites" app:filter_subtitle="All"
+                app:layout_columnSpan="2" app:layout_gravity="fill"
+                android:id="@+id/favorites"/>
 
-            <android.support.v7.widget.AppCompatTextView style="?attr/filterItem"
-                android:text="Tags"/>
+            <net.solutinno.wiimp.widgets.FilterItemView
+                app:filter_title="Sites" app:filter_subtitle="All"
+                app:layout_columnSpan="2" app:layout_gravity="fill"
+                android:id="@+id/sites"/>
 
-            <android.support.v7.widget.AppCompatTextView style="?attr/filterItem"
-                android:text="Length"/>
+            <net.solutinno.wiimp.widgets.FilterItemView
+                app:filter_title="Tags" app:filter_subtitle="All"
+                app:layout_columnSpan="2" app:layout_gravity="fill"
+                android:id="@+id/tags"/>
 
         </android.support.v7.widget.GridLayout>
     </android.support.v4.widget.NestedScrollView>

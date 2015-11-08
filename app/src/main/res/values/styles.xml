@@ -22,44 +22,20 @@
     </style>
 
     <style name="AppTheme.Filter" parent="AppTheme.NoActionBar">
-        <item name="filterHeader">@style/AppTheme.Filter.Header</item>
         <item name="filterDivider">@style/AppTheme.Filter.Divider</item>
-        <item name="filterItem">@style/AppTheme.Filter.Item</item>
-        <item name="filterSwitch">@style/AppTheme.Filter.Switch</item>
-        <item name="filterCheckBox">@style/AppTheme.Filter.CheckBox</item>
-        <item name="filterSpinner">@style/AppTheme.Filter.Spinner</item>
-    </style>
-    <style name="AppTheme.Filter.Header">
-        <item name="android:gravity">left|center_vertical</item>
-        <item name="android:layout_height">48dp</item>
-        <item name="android:paddingLeft">16dp</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">?attr/colorAccent</item>
-        <item name="layout_columnSpan">3</item>
+        <item name="filterHeader">@style/AppTheme.Filter.Header</item>
     </style>
     <style name="AppTheme.Filter.Divider">
         <item name="android:layout_width">match_parent</item>
         <item name="android:background">@drawable/divider</item>
         <item name="android:layout_height">1dp</item>
-        <item name="layout_columnSpan">3</item>
     </style>
-    <style name="AppTheme.Filter.Item">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:paddingTop">8dp</item>
-        <item name="android:paddingBottom">8dp</item>
-        <item name="android:paddingLeft">24dp</item>
-        <item name="android:paddingRight">8dp</item>
-        <item name="android:textSize">18sp</item>
-        <item name="layout_columnSpan">3</item>
-    </style>
-    <style name="AppTheme.Filter.Switch" parent="AppTheme.Filter.Item">
-    </style>
-    <style name="AppTheme.Filter.CheckBox" parent="AppTheme.Filter.Item">
-    </style>
-    <style name="AppTheme.Filter.Spinner" parent="AppTheme.Filter.Item">
-        <item name="layout_gravity">fill</item>
-        <item name="android:paddingLeft">16dp</item>
+    <style name="AppTheme.Filter.Header">
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Subhead</item>
+        <item name="android:textColor">?attr/colorAccent</item>
     </style>
 
 </resources>
