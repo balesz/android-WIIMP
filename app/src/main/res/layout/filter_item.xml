@@ -15,15 +15,15 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:src="@drawable/ic_expand_more_24dp"
-        android:id="@+id/icon"/>
+        android:id="@+id/image1"/>
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_marginRight="16dp"
         android:layout_marginEnd="16dp"
         android:layout_centerVertical="true"
-        android:layout_toLeftOf="@id/icon"
-        android:layout_toStartOf="@id/icon"
+        android:layout_toLeftOf="@id/image1"
+        android:layout_toStartOf="@id/image1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <android.support.v7.widget.AppCompatTextView
@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:text="Title"
-            android:id="@+id/title"/>
+            android:id="@+id/text1"/>
         <android.support.v7.widget.AppCompatTextView
             style="@style/TextAppearance.AppCompat.Caption"
             android:layout_width="match_parent"
@@ -39,7 +39,7 @@
             android:lines="1"
             android:ellipsize="end"
             tools:text="Subtitle"
-            android:id="@+id/subtitle"/>
+            android:id="@+id/text2"/>
     </LinearLayout>
 
     <android.support.v7.widget.AppCompatButton
@@ -47,6 +47,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/transparent"
-        android:id="@+id/button"/>
+        android:id="@+id/button1"/>
 
 </RelativeLayout>

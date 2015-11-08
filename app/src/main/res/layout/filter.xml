@@ -38,11 +38,11 @@
             tools:ignore="ContentDescription">
 
             <net.solutinno.wiimp.widgets.FilterItemView style="?attr/filterItem"
-                app:title="Group by" app:type="spinner" app:entries="@array/filter_group"
+                app:title="Group by" app:type="list" app:entries="@array/filter_group"
                 android:id="@+id/group_by"/>
 
             <net.solutinno.wiimp.widgets.FilterItemView style="?attr/filterItem"
-                app:title="Order by" app:type="spinner" app:entries="@array/filter_order"
+                app:title="Order by" app:type="list" app:entries="@array/filter_order"
                 android:id="@+id/order_by"/>
 
             <android.support.v7.widget.AppCompatTextView style="?attr/filterDivider"/>
@@ -55,11 +55,11 @@
                 android:id="@+id/date"/>
 
             <net.solutinno.wiimp.widgets.FilterItemView style="?attr/filterItem"
-                app:title="Length" app:type="spinner" app:entries="@array/filter_length"
+                app:title="Length" app:type="list" app:entries="@array/filter_length"
                 android:id="@+id/length"/>
 
             <net.solutinno.wiimp.widgets.FilterItemView style="?attr/filterItem"
-                app:title="Favorites" app:type="spinner" app:entries="@array/filter_favorites"
+                app:title="Favorites" app:type="list" app:entries="@array/filter_favorites"
                 android:id="@+id/favorites"/>
 
             <net.solutinno.wiimp.widgets.FilterItemView style="?attr/filterItem"

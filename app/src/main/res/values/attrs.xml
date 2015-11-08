@@ -16,10 +16,9 @@
         <attr name="subtitle"/>
         <attr name="entries"/>
         <attr name="type" format="enum">
-            <enum name="spinner" value="0"/>
+            <enum name="list" value="0"/>
             <enum name="date_range" value="1"/>
-            <enum name="list" value="2"/>
-            <enum name="multi_select_list" value="3"/>
+            <enum name="multi_select_list" value="2"/>
         </attr>
     </declare-styleable>
 
