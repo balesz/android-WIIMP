@@ -24,18 +24,25 @@
     <style name="AppTheme.Filter" parent="AppTheme.NoActionBar">
         <item name="filterDivider">@style/AppTheme.Filter.Divider</item>
         <item name="filterHeader">@style/AppTheme.Filter.Header</item>
+        <item name="filterItem">@style/AppTheme.Filter.Item</item>
     </style>
     <style name="AppTheme.Filter.Divider">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:background">@drawable/divider</item>
         <item name="android:layout_height">1dp</item>
+        <item name="android:background">@drawable/divider</item>
     </style>
     <style name="AppTheme.Filter.Header">
         <item name="android:gravity">left|center_vertical</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">48dp</item>
         <item name="android:layout_marginLeft">16dp</item>
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Subhead</item>
         <item name="android:textColor">?attr/colorAccent</item>
+    </style>
+    <style name="AppTheme.Filter.Item">
+        <item name="android:layout_height">64dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginLeft">16dp</item>
     </style>
 
 </resources>

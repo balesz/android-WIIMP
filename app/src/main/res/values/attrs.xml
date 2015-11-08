@@ -8,11 +8,19 @@
     <declare-styleable name="AppTheme.Filter">
         <attr name="filterDivider" format="reference"/>
         <attr name="filterHeader" format="reference"/>
+        <attr name="filterItem" format="reference"/>
     </declare-styleable>
 
     <declare-styleable name="FilterItemView">
-        <attr name="filter_title" format="string"/>
-        <attr name="filter_subtitle" format="string"/>
+        <attr name="title"/>
+        <attr name="subtitle"/>
+        <attr name="entries"/>
+        <attr name="type" format="enum">
+            <enum name="spinner" value="0"/>
+            <enum name="date_range" value="1"/>
+            <enum name="list" value="2"/>
+            <enum name="multi_select_list" value="3"/>
+        </attr>
     </declare-styleable>
 
 </resources>

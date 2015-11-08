@@ -30,65 +30,49 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/filter_scroll">
-        <android.support.v7.widget.GridLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:columnCount="2"
-            tools:ignore="ContentDescription"
-            android:theme="@style/AppTheme.Filter">
+            android:orientation="vertical"
+            android:theme="@style/AppTheme.Filter"
+            tools:ignore="ContentDescription">
 
-            <android.support.v7.widget.AppCompatTextView style="?attr/filterHeader"
-                app:layout_columnSpan="2"
-                android:text="REFINE"/>
-
-            <android.support.v7.widget.AppCompatTextView style="?attr/filterDivider"
-                app:layout_columnSpan="2" app:layout_gravity="fill" />
-
-            <net.solutinno.wiimp.widgets.FilterItemView
-                android:layout_height="48dp"
-                app:filter_title="Group by" app:filter_subtitle="None"
-                app:layout_columnSpan="2" app:layout_gravity="fill"
+            <net.solutinno.wiimp.widgets.FilterItemView style="?attr/filterItem"
+                app:title="Group by" app:type="spinner" app:entries="@array/filter_group"
                 android:id="@+id/group_by"/>
 
-            <net.solutinno.wiimp.widgets.FilterItemView
-                android:layout_height="48dp"
-                app:filter_title="Order by" app:filter_subtitle="Newest first"
-                app:layout_columnSpan="2" app:layout_gravity="fill"
+            <net.solutinno.wiimp.widgets.FilterItemView style="?attr/filterItem"
+                app:title="Order by" app:type="spinner" app:entries="@array/filter_order"
                 android:id="@+id/order_by"/>
 
-            <android.support.v7.widget.AppCompatTextView style="?attr/filterDivider"
-                app:layout_columnSpan="2" app:layout_gravity="fill" />
+            <android.support.v7.widget.AppCompatTextView style="?attr/filterDivider"/>
 
             <android.support.v7.widget.AppCompatTextView style="?attr/filterHeader"
-                app:layout_columnSpan="2"
                 android:text="Filter"/>
 
-            <net.solutinno.wiimp.widgets.FilterItemView
-                app:filter_title="Date" app:filter_subtitle="2015.11.01 - 2015.11.06"
-                app:layout_columnSpan="2" app:layout_gravity="fill"
+            <net.solutinno.wiimp.widgets.FilterItemView style="?attr/filterItem"
+                app:title="Date" app:subtitle="All time" app:type="date_range"
                 android:id="@+id/date"/>
 
-            <net.solutinno.wiimp.widgets.FilterItemView
-                app:filter_title="Length" app:filter_subtitle="All"
-                app:layout_columnSpan="2" app:layout_gravity="fill"
+            <net.solutinno.wiimp.widgets.FilterItemView style="?attr/filterItem"
+                app:title="Length" app:type="spinner" app:entries="@array/filter_length"
                 android:id="@+id/length"/>
 
-            <net.solutinno.wiimp.widgets.FilterItemView
-                app:filter_title="Favorites" app:filter_subtitle="All"
-                app:layout_columnSpan="2" app:layout_gravity="fill"
+            <net.solutinno.wiimp.widgets.FilterItemView style="?attr/filterItem"
+                app:title="Favorites" app:type="spinner" app:entries="@array/filter_favorites"
                 android:id="@+id/favorites"/>
 
-            <net.solutinno.wiimp.widgets.FilterItemView
-                app:filter_title="Sites" app:filter_subtitle="All"
-                app:layout_columnSpan="2" app:layout_gravity="fill"
+            <net.solutinno.wiimp.widgets.FilterItemView style="?attr/filterItem"
+                app:title="Sites" app:subtitle="All" app:type="multi_select_list"
+                app:entries="@array/filter_sites"
                 android:id="@+id/sites"/>
 
-            <net.solutinno.wiimp.widgets.FilterItemView
-                app:filter_title="Tags" app:filter_subtitle="All"
-                app:layout_columnSpan="2" app:layout_gravity="fill"
+            <net.solutinno.wiimp.widgets.FilterItemView style="?attr/filterItem"
+                app:title="Tags" app:subtitle="All" app:type="multi_select_list"
+                app:entries="@array/filter_tags"
                 android:id="@+id/tags"/>
 
-        </android.support.v7.widget.GridLayout>
+        </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 
 </RelativeLayout>
