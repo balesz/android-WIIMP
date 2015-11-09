@@ -18,7 +18,7 @@ class FilterItemView : FrameLayout {
 
     companion object {
         val TYPE_LIST = 0
-        val TYPE_DATE_RANGE = 1
+        val TYPE_DATE = 1
         val TYPE_MULTI_SELECT_LIST = 2
     }
 
@@ -54,40 +54,40 @@ class FilterItemView : FrameLayout {
             subtitle = entries.first()
         }
         button1.setOnClickListener {
-            AlertDialog.Builder(context).apply {
-                when (type) {
-                    TYPE_LIST -> listClick()
-                    TYPE_DATE_RANGE -> dateRangeClick()
-                    TYPE_MULTI_SELECT_LIST -> multiSelectListClick()
-                }
+            when (type) {
+                TYPE_LIST -> listDialog?.show()
+                TYPE_DATE -> dateDialog?.show()
+                TYPE_MULTI_SELECT_LIST -> multiDialog?.show()
             }
         }
     }
 
-    private fun AlertDialog.Builder.dateRangeClick() {
+    private val dateDialog : AlertDialog? get()
+    = AlertDialog.Builder(context, R.style.AppTheme_AlertDialog).create().apply {
+        val dialog = this
         setView(SublimeDatePicker(context).apply {
-            init(2015, 11, 8, DatePickerFunctions.OnDateChangedListener { sdp, y, m, d ->
-                subtitle = DateTime(y, m+1, d, 12, 0).toString("yyyy-MM-dd")
-            })
-        }, 72, 16, 0, 16)
-        show()
+            val date = DateTime.now()
+            val callback = DatePickerFunctions.OnDateChangedListener { sdp, y, m, d ->
+                subtitle = DateTime(y, m+1, d, 12, 0).toLocalDate().toString()
+                dialog.hide()
+            }
+            init(date.year, date.monthOfYear, date.dayOfMonth, callback)
+        })
     }
 
-    private fun AlertDialog.Builder.listClick() {
-        if (entries == null) return
+    private val listDialog : AlertDialog.Builder? get() = AlertDialog.Builder(context).apply {
+        if (entries == null) return null
         setItems(entries, DialogInterface.OnClickListener { dialogInterface, i ->
             subtitle = entries[i]
         })
-        show()
     }
 
-    private fun AlertDialog.Builder.multiSelectListClick() {
-        if (entries == null) return
+    private val multiDialog: AlertDialog.Builder? get() = AlertDialog.Builder(context).apply {
+        if (entries == null) return null
         setMultiChoiceItems(entries, null, DialogInterface.OnMultiChoiceClickListener { di, i, b ->
             if (b) selectedValues.add(entries[i])
             else selectedValues.remove(entries[i])
             subtitle = selectedValues.joinToString()
         })
-        show()
     }
 }

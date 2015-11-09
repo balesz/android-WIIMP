@@ -51,8 +51,11 @@
                 android:text="Filter"/>
 
             <net.solutinno.wiimp.widgets.FilterItemView style="?attr/filterItem"
-                app:title="Date" app:subtitle="All time" app:type="date_range"
-                android:id="@+id/date"/>
+                app:title="From" app:subtitle="No date selected" app:type="date"
+                android:id="@+id/dateFrom"/>
+            <net.solutinno.wiimp.widgets.FilterItemView style="?attr/filterItem"
+                app:title="To" app:subtitle="No date selected" app:type="date"
+                android:id="@+id/dateTo"/>
 
             <net.solutinno.wiimp.widgets.FilterItemView style="?attr/filterItem"
                 app:title="Length" app:type="list" app:entries="@array/filter_length"

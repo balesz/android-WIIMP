@@ -21,6 +21,9 @@
     <style name="AppTheme.Settings" parent="@style/PreferenceThemeOverlay.v14.Material">
     </style>
 
+    <style name="AppTheme.AlertDialog" parent="Theme.AppCompat.Light.Dialog">
+    </style>
+
     <style name="AppTheme.Filter" parent="AppTheme.NoActionBar">
         <item name="filterDivider">@style/AppTheme.Filter.Divider</item>
         <item name="filterHeader">@style/AppTheme.Filter.Header</item>

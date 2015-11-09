@@ -6,7 +6,7 @@
     android:layout_height="124dp">
 
     <TextView
-        android:text="Hello World"
+        android:text="Balesz@Pocket"
         android:textAppearance="@style/TextAppearance.AppCompat.Large.Inverse"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
