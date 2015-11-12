@@ -14,12 +14,11 @@
     <declare-styleable name="FilterItemView">
         <attr name="title"/>
         <attr name="subtitle"/>
+    </declare-styleable>
+
+    <declare-styleable name="ListFilterItemView">
         <attr name="entries"/>
-        <attr name="type" format="enum">
-            <enum name="list" value="0"/>
-            <enum name="date" value="1"/>
-            <enum name="multi_select_list" value="2"/>
-        </attr>
+        <attr name="multi_select" format="boolean"/>
     </declare-styleable>
 
 </resources>

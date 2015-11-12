@@ -1,32 +1,13 @@
 package net.solutinno.wiimp.widgets
 
 import android.content.Context
-import android.content.DialogInterface
-import android.support.v7.app.AlertDialog
 import android.util.AttributeSet
 import android.widget.FrameLayout
-import com.appeaser.sublimepickerlibrary.datepicker.DatePickerFunctions
-import com.appeaser.sublimepickerlibrary.datepicker.SublimeDatePicker
-import kotlinx.android.synthetic.filter_item.view.button1
 import kotlinx.android.synthetic.filter_item.view.text1
 import kotlinx.android.synthetic.filter_item.view.text2
 import net.solutinno.wiimp.R
-import org.joda.time.DateTime
-import java.util.*
 
-class FilterItemView : FrameLayout {
-
-    companion object {
-        val TYPE_LIST = 0
-        val TYPE_DATE = 1
-        val TYPE_MULTI_SELECT_LIST = 2
-    }
-
-    val type: Int
-
-    val entries: Array<CharSequence>?
-
-    val selectedValues: ArrayList<CharSequence> = arrayListOf()
+abstract class FilterItemView : FrameLayout {
 
     var title: CharSequence?
         get() = text1?.text
@@ -36,58 +17,19 @@ class FilterItemView : FrameLayout {
         get() = text2?.text
         set(value) { text2?.text = value }
 
+    protected val originalSubtitle: CharSequence?
+
     constructor(ctx: Context, attrs: AttributeSet? = null) : super(ctx, attrs) {
         addView(inflate(context, R.layout.filter_item, null).apply {
             layoutParams = generateDefaultLayoutParams()
         })
         val array = ctx.theme.obtainStyledAttributes(attrs, R.styleable.FilterItemView, 0, 0)
         title = array.getString(R.styleable.FilterItemView_title)
-        subtitle = array.getString(R.styleable.FilterItemView_subtitle)
-        type = array.getInt(R.styleable.FilterItemView_type, -1)
-        entries = array.getTextArray(R.styleable.FilterItemView_entries)
+        originalSubtitle= array.getString(R.styleable.FilterItemView_subtitle)
+        subtitle = originalSubtitle
         array.recycle()
         setupView()
     }
 
-    private fun setupView () {
-        if (entries != null && type == TYPE_LIST) {
-            subtitle = entries.first()
-        }
-        button1.setOnClickListener {
-            when (type) {
-                TYPE_LIST -> listDialog?.show()
-                TYPE_DATE -> dateDialog?.show()
-                TYPE_MULTI_SELECT_LIST -> multiDialog?.show()
-            }
-        }
-    }
-
-    private val dateDialog : AlertDialog? get()
-    = AlertDialog.Builder(context, R.style.AppTheme_AlertDialog).create().apply {
-        val dialog = this
-        setView(SublimeDatePicker(context).apply {
-            val date = DateTime.now()
-            val callback = DatePickerFunctions.OnDateChangedListener { sdp, y, m, d ->
-                subtitle = DateTime(y, m+1, d, 12, 0).toLocalDate().toString()
-                dialog.hide()
-            }
-            init(date.year, date.monthOfYear, date.dayOfMonth, callback)
-        })
-    }
-
-    private val listDialog : AlertDialog.Builder? get() = AlertDialog.Builder(context).apply {
-        if (entries == null) return null
-        setItems(entries, DialogInterface.OnClickListener { dialogInterface, i ->
-            subtitle = entries[i]
-        })
-    }
-
-    private val multiDialog: AlertDialog.Builder? get() = AlertDialog.Builder(context).apply {
-        if (entries == null) return null
-        setMultiChoiceItems(entries, null, DialogInterface.OnMultiChoiceClickListener { di, i, b ->
-            if (b) selectedValues.add(entries[i])
-            else selectedValues.remove(entries[i])
-            subtitle = selectedValues.joinToString()
-        })
-    }
+    protected abstract fun setupView ()
 }
