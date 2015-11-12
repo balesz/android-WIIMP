@@ -52,11 +52,11 @@
 
             <net.solutinno.wiimp.widgets.DateFilterItemView style="?attr/filterItem"
                 app:title="From" app:subtitle="No date selected"
-                android:id="@+id/dateFrom"/>
+                android:id="@+id/date_from"/>
 
             <net.solutinno.wiimp.widgets.DateFilterItemView style="?attr/filterItem"
                 app:title="To" app:subtitle="No date selected"
-                android:id="@+id/dateTo"/>
+                android:id="@+id/date_to"/>
 
             <net.solutinno.wiimp.widgets.ListFilterItemView style="?attr/filterItem"
                 app:title="Length" app:entries="@array/filter_length"

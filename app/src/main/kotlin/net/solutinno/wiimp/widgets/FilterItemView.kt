@@ -28,8 +28,5 @@ abstract class FilterItemView : FrameLayout {
         originalSubtitle= array.getString(R.styleable.FilterItemView_subtitle)
         subtitle = originalSubtitle
         array.recycle()
-        setupView()
     }
-
-    protected abstract fun setupView ()
 }

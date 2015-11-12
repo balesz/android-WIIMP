@@ -10,9 +10,21 @@ import org.joda.time.DateTime
 
 class DateFilterItemView : FilterItemView {
 
-    constructor(ctx: Context, attrs: AttributeSet? = null) : super(ctx, attrs)
+    var onChange: (DateFilterItemView, Long) -> Unit = { s, v -> }
 
-    override fun setupView() {
+    var value : Long = -1
+        get() = field
+        set(value) {
+            field = value
+            subtitle = if (field == -1L) originalSubtitle
+            else DateTime(field).toLocalDate().toString()
+        }
+
+    constructor(ctx: Context, attrs: AttributeSet? = null) : super(ctx, attrs) {
+        init()
+    }
+
+    private fun init() {
         setOnClickListener { dateDialog?.show() }
     }
 
@@ -21,11 +33,13 @@ class DateFilterItemView : FilterItemView {
         val dialog = this
         setView(SublimeDatePicker(context).apply {
             val callback = DatePickerFunctions.OnDateChangedListener { sdp, y, m, d ->
-                subtitle = DateTime(y, m + 1, d, 12, 0).toLocalDate().toString()
+                value = DateTime(y, m + 1, d, 12, 0).millis
+                onChange(this@DateFilterItemView, value)
                 dialog.hide()
             }
-            val date = DateTime.now()
-            init(date.year, date.monthOfYear, date.dayOfMonth, callback)
+            val now = if (value > -1) DateTime(value) else DateTime.now()
+            init(now.year, now.monthOfYear - 1, now.dayOfMonth, callback)
+            syncState()
         })
     }
 }
