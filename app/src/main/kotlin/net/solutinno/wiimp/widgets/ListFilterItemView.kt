@@ -1,21 +1,24 @@
 package net.solutinno.wiimp.widgets
 
 import android.content.Context
-import android.content.DialogInterface
 import android.support.v7.app.AlertDialog
 import android.util.AttributeSet
 import net.solutinno.wiimp.R
-import java.util.*
 
-class ListFilterItemView : FilterItemView {
+class ListFilterItemView : FilterItemView<IntArray> {
 
     private val entries: Array<CharSequence>
 
     private val isMultiSelect: Boolean
 
-    private val selectedValues: ArrayList<Int> = arrayListOf()
-
-    var onChange: (ListFilterItemView, IntArray) -> Unit = { s, v -> }
+    override var value: IntArray = intArrayOf()
+        get() = field
+        set(value) {
+            field = value
+            subtitle = if (value.isEmpty()) entries.firstOrNull().toString()
+            else value.map { entries[it] }.joinToString()
+            onChanged(this, value)
+        }
 
     constructor(ctx: Context, attrs: AttributeSet? = null) : super(ctx, attrs) {
         val array = ctx.theme.obtainStyledAttributes(attrs, R.styleable.ListFilterItemView, 0, 0)
@@ -27,26 +30,23 @@ class ListFilterItemView : FilterItemView {
 
     private fun init() {
         isSaveEnabled = true
+        subtitle = if (subtitle.isNullOrBlank()) entries.firstOrNull().toString() else subtitle
         setOnClickListener { if (isMultiSelect) multiDialog?.show() else listDialog?.show() }
     }
 
     private val listDialog : AlertDialog.Builder? get() = AlertDialog.Builder(context).apply {
         if (entries.isEmpty()) return null
-        setItems(entries, DialogInterface.OnClickListener { dialogInterface, i ->
-            selectedValues.clear()
-            subtitle = entries[i]
-            selectedValues.add(i)
-            onChange(this@ListFilterItemView, selectedValues.toIntArray())
+        setItems(entries, { dialogInterface, i ->
+            value = intArrayOf(i)
         })
     }
 
     private val multiDialog: AlertDialog.Builder? get() = AlertDialog.Builder(context).apply {
         if (entries.isEmpty()) return null
-        setMultiChoiceItems(entries, null, DialogInterface.OnMultiChoiceClickListener { di, i, b ->
-            if (b) selectedValues.add(i)
-            else selectedValues.remove(i)
-            subtitle = selectedValues.map { entries[it] }.joinToString()
-            onChange(this@ListFilterItemView, selectedValues.toIntArray())
+        val selected = (0..entries.size-1).map { value.contains(it) }.toBooleanArray()
+        setMultiChoiceItems(entries, selected, { di, i, b ->
+            value = if (b) value.union(intArrayOf(i).asIterable()).toIntArray()
+            else value.subtract(intArrayOf(i).asIterable()).toIntArray()
         })
     }
 }

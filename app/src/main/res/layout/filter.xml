@@ -37,6 +37,9 @@
             android:theme="@style/AppTheme.Filter"
             tools:ignore="ContentDescription">
 
+            <android.support.v7.widget.AppCompatTextView style="?attr/filterHeader"
+                android:text="REFINE"/>
+
             <net.solutinno.wiimp.widgets.ListFilterItemView style="?attr/filterItem"
                 app:title="Group by" app:entries="@array/filter_group"
                 android:id="@+id/group_by"/>

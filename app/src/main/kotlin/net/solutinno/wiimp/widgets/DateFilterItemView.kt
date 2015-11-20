@@ -8,16 +8,15 @@ import com.appeaser.sublimepickerlibrary.datepicker.SublimeDatePicker
 import net.solutinno.wiimp.R
 import org.joda.time.DateTime
 
-class DateFilterItemView : FilterItemView {
+class DateFilterItemView : FilterItemView<Long> {
 
-    var onChange: (DateFilterItemView, Long) -> Unit = { s, v -> }
-
-    var value : Long = -1
+    override var value : Long = -1L
         get() = field
         set(value) {
             field = value
             subtitle = if (field == -1L) originalSubtitle
             else DateTime(field).toLocalDate().toString()
+            onChanged(this, value)
         }
 
     constructor(ctx: Context, attrs: AttributeSet? = null) : super(ctx, attrs) {
@@ -34,7 +33,6 @@ class DateFilterItemView : FilterItemView {
         setView(SublimeDatePicker(context).apply {
             val callback = DatePickerFunctions.OnDateChangedListener { sdp, y, m, d ->
                 value = DateTime(y, m + 1, d, 12, 0).millis
-                onChange(this@DateFilterItemView, value)
                 dialog.hide()
             }
             val now = if (value > -1) DateTime(value) else DateTime.now()

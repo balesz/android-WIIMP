@@ -17,28 +17,28 @@ class FilterFragment : Fragment() {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        group_by.onChange = listChange
-        order_by.onChange = listChange
+        group_by.onChanged = listChange
+        order_by.onChanged = listChange
 
-        date_from.onChange = dateChange
-        date_to.onChange = dateChange
+        date_from.onChanged = dateChange
+        date_to.onChanged = dateChange
 
-        length.onChange = listChange
-        favorites.onChange = listChange
+        length.onChanged = listChange
+        favorites.onChanged = listChange
 
-        sites.onChange = multiSelectChange
-        tags.onChange = multiSelectChange
+        sites.onChanged = multiSelectChange
+        tags.onChanged = multiSelectChange
     }
 
-    val listChange : (ListFilterItemView, IntArray) -> Unit = { sender, value ->
-
-    }
-
-    val multiSelectChange : (ListFilterItemView, IntArray) -> Unit = { sender, value ->
+    val listChange : (View, IntArray) -> Unit = { sender, value ->
 
     }
 
-    val dateChange : (DateFilterItemView, Long) -> Unit = { sender, value ->
+    val multiSelectChange : (View, IntArray) -> Unit = { sender, value ->
+
+    }
+
+    val dateChange : (View, Long) -> Unit = { sender, value ->
         when (sender) {
             date_from -> if (value > date_to.value && date_to.value > -1) {
                 date_from.value = date_to.value
