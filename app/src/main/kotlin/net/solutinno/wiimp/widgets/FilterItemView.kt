@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.widget.FrameLayout
-import kotlinx.android.synthetic.filter_item.view.*
+import kotlinx.android.synthetic.main.filter_item.view.*
 import net.solutinno.wiimp.R
 
 abstract class FilterItemView<T> : FrameLayout {

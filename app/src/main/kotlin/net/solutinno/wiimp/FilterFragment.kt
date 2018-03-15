@@ -5,11 +5,12 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.filter.*
-import net.solutinno.wiimp.widgets.DateFilterItemView
-import net.solutinno.wiimp.widgets.ListFilterItemView
+import kotlinx.android.synthetic.main.filter.*
+import net.solutinno.wiimp.model.Filter
 
 class FilterFragment : Fragment() {
+
+    val filter = Filter()
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater?.inflate(R.layout.filter, container)
@@ -19,23 +20,23 @@ class FilterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         group_by.onChanged = listChange
         order_by.onChanged = listChange
-
         date_from.onChanged = dateChange
         date_to.onChanged = dateChange
-
         length.onChanged = listChange
         favorites.onChanged = listChange
-
-        sites.onChanged = multiSelectChange
-        tags.onChanged = multiSelectChange
+        sites.onChanged = listChange
+        tags.onChanged = listChange
     }
 
     val listChange : (View, IntArray) -> Unit = { sender, value ->
-
-    }
-
-    val multiSelectChange : (View, IntArray) -> Unit = { sender, value ->
-
+        when (sender) {
+            group_by -> filter.groupBy = value.first()
+            order_by -> filter.orderBy = value.first()
+            length -> filter.length = value.first()
+            favorites -> filter.favorites = value.first()
+            sites -> filter.sites = sites.value.map { "${sites.entries[it]}" }.toTypedArray()
+            tags -> filter.tags = tags.value.map { "${tags.entries[it]}" }.toTypedArray()
+        }
     }
 
     val dateChange : (View, Long) -> Unit = { sender, value ->
@@ -49,5 +50,15 @@ class FilterFragment : Fragment() {
                 date_from.value = value
             }
         }
+        filter.dateFrom = date_from.value
+        filter.dateTo = date_to.value
+    }
+
+    val resetClick = View.OnClickListener {
+        
+    }
+
+    val filterClick = View.OnClickListener {
+
     }
 }

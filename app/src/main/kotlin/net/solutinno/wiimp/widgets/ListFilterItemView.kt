@@ -7,7 +7,7 @@ import net.solutinno.wiimp.R
 
 class ListFilterItemView : FilterItemView<IntArray> {
 
-    private val entries: Array<CharSequence>
+    val entries: Array<CharSequence>
 
     private val isMultiSelect: Boolean
 

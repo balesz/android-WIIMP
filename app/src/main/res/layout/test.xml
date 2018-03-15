@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.GridLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:columnCount="2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:hint="Text1"
+        app:layout_columnSpan="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/test_text1"/>
+
+    <EditText
+        android:hint="Text2"
+        app:layout_columnSpan="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/test_text2"/>
+
+    <Button
+        android:text="Button1"
+        app:layout_columnSpan="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/test_button1"/>
+
+    <Button
+        android:text="Button2"
+        app:layout_columnSpan="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/test_button2"/>
+
+</android.support.v7.widget.GridLayout>

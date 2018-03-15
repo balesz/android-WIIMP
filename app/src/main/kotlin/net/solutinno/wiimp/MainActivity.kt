@@ -6,14 +6,14 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.Gravity
 import android.view.View
-import kotlinx.android.synthetic.main.*
+import kotlinx.android.synthetic.main.main_activity.*
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.main)
+        setContentView(R.layout.main_activity)
 
         setSupportActionBar(main_toolbar)
 
@@ -35,8 +35,12 @@ class MainActivity : AppCompatActivity() {
 
     val onNavigationItemSelected = NavigationView.OnNavigationItemSelectedListener {
         if (it.title == "Settings") {
-            fragmentManager.beginTransaction()
+            /*fragmentManager.beginTransaction()
                     .replace(main_content.id, SettingsFragment(), "Settings")
+                    .addToBackStack(null)
+                    .commit()*/
+            supportFragmentManager.beginTransaction()
+                    .replace(main_content.id, TestFragment(), "Settings")
                     .addToBackStack(null)
                     .commit()
         }
